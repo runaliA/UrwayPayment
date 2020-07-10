@@ -4,6 +4,7 @@ import org.apache.cordova.CordovaPlugin;
 
 import java.net.HttpURLConnection;
 
+
 import org.apache.cordova.CallbackContext;
 
 import org.json.JSONArray;
@@ -48,8 +49,8 @@ public class PaymentUrway extends CordovaPlugin {
         }
 
     }
-
-    public String sendTrans(String requesturl, JSONObject jsondata, String hashValue, String pgServiceReadtime) throws Exception {
+/*
+ *   public String sendTrans(String requesturl, JSONObject jsondata, String hashValue, String pgServiceReadtime) throws Exception {
         StringBuffer response = new StringBuffer();
         URL obj = new URL("https://payments-dev.urway-tech.com/URWAYPGService/transaction/jsonProcess/JSONrequest");
         System.out.println("configured url:" + requesturl);
@@ -83,7 +84,7 @@ public class PaymentUrway extends CordovaPlugin {
 //"customerEmail":"wrere@sdas.asd","address":"ddasd","city":"asdasd","zipCode":"234555"
 //,"country":"IN","amount":"34.00","state":"sadsa","customerIp":"10.0.2.16",
 //"merchantIp":"10.11.11.12","tranid":"2013302158922905368","trackid":"326051","udf1":"","udf2":"","udf3":"","udf4":"","udf5":"","udf7":"ANDROID"}
-//
-    }
+//*/
+   // }
 
 }

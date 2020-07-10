@@ -6,7 +6,9 @@
     <js-module name="PaymentUrway" src="www/PaymentUrway.js">
         <clobbers target="cordova.plugins.PaymentUrway" />
     </js-module>
-    <platform name="android">
+ 
+ 
+ <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="PaymentUrway">
                 <param name="android-package" value="cordova.plugin.payment.PaymentUrway" />
@@ -15,4 +17,5 @@
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/PaymentUrway.java" target-dir="src/cordova/plugin/payment/PaymentUrway" />
     </platform>
+
 </plugin>
