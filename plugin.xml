@@ -3,8 +3,10 @@
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>PaymentUrway</name>
+
+    
     <js-module name="PaymentUrway" src="www/PaymentUrway.js">
-        <clobbers target="cordova.plugins.PaymentUrway" />
+        <clobbers target="PaymentUrway" />
     </js-module>
  
  
