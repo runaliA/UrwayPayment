@@ -51,10 +51,10 @@ public class PaymentUrway extends CordovaPlugin {
                 StringBuffer response = new StringBuffer();
                 URL obj = new URL("https://payments-dev.urway-tech.com/URWAYPGService/transaction/jsonProcess/JSONrequest");
                 System.out.println("configured url:" + requesturl);
-                jsondata.put("requestHash", "123312hggdfd");
-                System.out.println("HashValue" + hashValue);
-                System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
-                System.out.println("json request is" + jsondata);
+                // jsondata.put("requestHash", "123312hggdfd");
+                // System.out.println("HashValue" + hashValue);
+                // System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
+                // System.out.println("json request is" + jsondata);
                
                 HttpURLConnection httpCon = (HttpURLConnection) obj.openConnection();
                
@@ -64,7 +64,7 @@ public class PaymentUrway extends CordovaPlugin {
                 httpCon.setRequestProperty("Accept", "application/json");
                 
                 OutputStreamWriter out = new OutputStreamWriter(httpCon.getOutputStream());
-                out.write("jsondata.toString()");
+                // out.write("jsondata.toString()");
                 out.flush();
                 out.close();
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
