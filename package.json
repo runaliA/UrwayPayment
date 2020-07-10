@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-payment",
+  "version": "1.0.0",
+  "description": "This is payment plugin",
+  "cordova": {
+    "id": "cordova-plugin-payment",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Concerto",
+  "license": "ISC"
+}
