@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'PaymentUrway', 'coolMethod', [arg0]);
+exports.payment = function (arg0, success, error) {
+    exec(success, error, 'PaymentUrway', 'payment', [arg0]);
 };
