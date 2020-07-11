@@ -185,6 +185,7 @@ public String generateHashKey(JSONObject jsonObj, String merchantKey)
 {
     String pipeSeperatedString = "";
     String hashKey = null;
+    Sha1Encryption hash = new Sha1Encryption();
     try {
         try
         {
