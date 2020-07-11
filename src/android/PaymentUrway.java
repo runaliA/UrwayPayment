@@ -11,6 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.cordova.CallbackContext;
 
@@ -47,7 +48,8 @@ public class PaymentUrway extends CordovaPlugin {
             try
             {
                 String p2=args.getJSONObject(0).getString("param2");
-               JsonObject jsondata=createJson(args);
+                JSONObject jsondata = new JSONObject();
+                jsondata=createJson(args);
                String hashValue = generateHashKey(jsondata, "146c0c30025cadba9fbdf9e909b49eac1b631b4afeb56485f93d8f271a832e3a");
 
                
