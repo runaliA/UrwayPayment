@@ -47,11 +47,16 @@ public class PaymentUrway extends CordovaPlugin {
             try
             {
                 String p2=args.getJSONObject(0).getString("param2");
-                
+               JsonObject jsondata=createJson(args);
+               String hashValue = generateHashKey(jsondata, "146c0c30025cadba9fbdf9e909b49eac1b631b4afeb56485f93d8f271a832e3a");
+
+               
+
+
                 StringBuffer response = new StringBuffer();
                 URL obj = new URL("https://payments-dev.urway-tech.com/URWAYPGService/transaction/jsonProcess/JSONrequest");
                 // System.out.println("configured url:" + requesturl);
-                // jsondata.put("requestHasSsh", "123312hggdfd");
+                jsondata.put("requestHash", hashValue);
                 // System.out.println("HashValue" + hashValue);
                 // System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
                 // System.out.println("json request is" + jsondata);
@@ -64,7 +69,7 @@ public class PaymentUrway extends CordovaPlugin {
                 httpCon.setRequestProperty("Accept", "application/json");
                 
                 OutputStreamWriter out = new OutputStreamWriter(httpCon.getOutputStream());
-                // out.write("jsondata.toString()");
+                out.write("jsondata.toString()");
                 out.flush();
                 out.close();
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
@@ -91,6 +96,113 @@ public class PaymentUrway extends CordovaPlugin {
         }
 
     }
+
+    public JSONObject createJson(JSONArray args)
+    {
+
+JSONObject testJson = new JSONObject();
+
+try {
+    testJson.put("terminalId", "tokenter");
+    testJson.put("password", "password");
+    testJson.put("action", "1");
+    testJson.put("currency", "SAR");
+//     if (email == null || "".equalsIgnoreCase(email)) {
+// //                testJson.put("customerEmail", "a@test.com");
+//         testJson.put("customerEmail", "");
+//     } else {
+        testJson.put("customerEmail", "runa187@sdf.com");
+    // }
+    testJson.put("address", "Shiv Mandir");
+    testJson.put("city", "Dombivli");
+    testJson.put("zipCode", "123456");
+    testJson.put("country", "IN");
+    testJson.put("amount", args.getJSONObject(0).getString("amount"));
+    // amount = Amount;
+    // merchantKey=merchantk;
+    testJson.put("state", "mahareashta");
+
+    // if (customer_Ip == null || "".equalsIgnoreCase(customer_Ip)) {
+
+    //     try {
+    //         testJson.put("customerIp", Inet4Address.getLocalHost().getHostAddress());
+    //     } catch (UnknownHostException e) {
+           
+    //         e.printStackTrace();
+    //     }
+    // } else {
+
+        testJson.put("customerIp", "1.1.1.1");
+    // }
+    // if (merchant_Ip == null || "".equalsIgnoreCase(merchant_Ip)) {
+
+    //     try {
+    //         testJson.put("merchantIp", Inet4Address.getLocalHost().getHostAddress());
+    //     } catch (UnknownHostException e) {
+            
+    //         e.printStackTrace();
+    //     }
+    // } else {
+
+        testJson.put("merchantIp", "1.2.34.4");
+    // }
+
+
+    // if (("1").equalsIgnoreCase(action_Code) || ("4").equalsIgnoreCase(action_Code)) {
+    //     if (trans_Id.length() > 18) {
+
+    //         testJson.put("transid", trans_Id);
+    //     } else {
+
+    //         testJson.put("tranid", generateTranId());
+    //     }
+    // } else {
+    //     testJson.put("transid", trans_Id);
+    // }
+    // String trackID = getRandomNumberString();
+    // Log.e("Response trackID:", trackID);
+    testJson.put("trackid", "1234");
+
+    testJson.put("udf1", "usr_Fld1");
+    testJson.put("udf2", "");
+    testJson.put("udf3", "");
+
+    testJson.put("udf4", "");
+    testJson.put("udf5", "");
+    testJson.put("udf10", "");
+
+}
+catch (JSONException e1)
+{
+    e1.printStackTrace();
+}
+return testJson;
+
+
+}
+
+public String generateHashKey(JSONObject jsonObj, String merchantKey)
+{
+    String pipeSeperatedString = "";
+    String hashKey = null;
+    try {
+        try
+        {
+            pipeSeperatedString = jsonObj.get("trackid") + "|" + jsonObj.get("terminalId") + "|" + jsonObj.get("password") + "|" + "146c0c30025cadba9fbdf9e909b49eac1b631b4afeb56485f93d8f271a832e3a" + "|" + jsonObj.get("amount") + "|" + jsonObj.get("currency");
+        }   catch (JSONException e)
+        {
+            
+            e.printStackTrace();
+        }
+            hashKey = hash.SHA256(pipeSeperatedString);
+
+    } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+        
+        e.printStackTrace();
+    }
+    return hashKey;
+}
+
 //    public void sendTrans(JSONArray args,CallbackContext callbackContext) throws Exception {
        
 //     StringBuffer response = new StringBuffer();
