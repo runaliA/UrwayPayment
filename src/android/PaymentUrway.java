@@ -99,10 +99,10 @@ public class PaymentUrway extends CordovaPlugin {
 
 AssetManager assetManager = this.cordova.getActivity().getAssets();
 InputStream inputStream = assetManager.open("appconfig.json");
-int size = is.available();
+int size = inputStream.available();
 byte[] buffer = new byte[size];
-is.read(buffer);
-is.close();
+inputStream.read(buffer);
+inputStream.close();
 
 String jsonString = new String(buffer, "UTF-8");
 JSONObject jsonObj = null;
@@ -113,7 +113,7 @@ jsonObj = new JSONObject(jsonString);
 String merc = jsonObj.get("merchantKey").toString();
 String termi= jsonObj.get("terminalId").toString();
 
-                callbackContext.success("RESULT is "+p2+" : "+termi);
+callbackContext.success("RESULT is "+p2+" : "+termi);
         
                     
                   
