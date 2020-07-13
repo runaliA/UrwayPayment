@@ -1,5 +1,9 @@
 package cordova.plugin.payment;
 
+import android.app.Activity;
+import android.os.Bundle;
+
+
 public class NewActivity extends Activity {
 
     @Override

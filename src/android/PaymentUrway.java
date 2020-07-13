@@ -28,6 +28,14 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
+import android.app.Activity;
+import android.os.Bundle;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.CordovaInterface;
+import android.content.Context;
+import android.content.Intent;
+
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -100,7 +108,7 @@ public class PaymentUrway extends CordovaPlugin {
                
 /*
 AssetManager assetManager = this.cordova.getActivity().getAssets();
-InputStream inputStream = assetManager.open("appconfig.json");
+InputStream inputStream = assetManager.open("wwww/assets/appconfig.json");
 int size = inputStream.available();
 byte[] buffer = new byte[size];
 inputStream.read(buffer);
