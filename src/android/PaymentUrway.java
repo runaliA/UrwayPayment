@@ -68,7 +68,7 @@ public class PaymentUrway extends CordovaPlugin {
                 // System.out.println("HashValue" + hashValue);
                 // System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
                 // System.out.println("json request is" + jsondata);
-               
+           /*  Service working code */    
                 HttpURLConnection httpCon = (HttpURLConnection) obj.openConnection();
                
                 httpCon.setDoOutput(true);
@@ -87,8 +87,27 @@ public class PaymentUrway extends CordovaPlugin {
                     response.append(inputLine);
                 }
                 in.close();
-                System.out.println("response string is" + response.toString());
-                callbackContext.success("RESULT is "+p2+""+ response.toString());
+                System.out.println("response string is" + response.toString()); 
+
+               
+
+AssetManager assetManager = this.cordova.getActivity().getAssets();
+InputStream inputStream = assetManager.open("appconfig.json");
+int size = is.available();
+byte[] buffer = new byte[size];
+is.read(buffer);
+is.close();
+
+String jsonString = new String(buffer, "UTF-8");
+JSONObject jsonObj = null;
+
+jsonObj = new JSONObject(jsonString);
+
+
+String merc = jsonObj.get("merchantKey").toString();
+String termi= jsonObj.get("terminalId").toString();
+
+                callbackContext.success("RESULT is "+p2+" : "+termi);
         
                     
                   
