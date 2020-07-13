@@ -230,7 +230,7 @@ public String generateHashKey(JSONObject jsonObj, String merchantKey)
         }
             // hashKey = hash.SHA256(pipeSeperatedString);
 
-    } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+    } catch (Exception e) {
         
         e.printStackTrace();
     }
