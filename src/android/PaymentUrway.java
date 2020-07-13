@@ -6,12 +6,11 @@ import java.net.HttpURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+
 import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.security.NoSuchAlgorithmException;
 
 import org.apache.cordova.CallbackContext;
 
@@ -28,13 +27,16 @@ import org.json.JSONObject;
 // import org.apache.commons.codec.binary.Hex;
 
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * This class echoes a string called from JavaScript.
  */
 public class PaymentUrway extends CordovaPlugin {
+
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+    }
+
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -96,7 +98,7 @@ public class PaymentUrway extends CordovaPlugin {
                 System.out.println("response string is" + response.toString()); 
 
                
-
+/*
 AssetManager assetManager = this.cordova.getActivity().getAssets();
 InputStream inputStream = assetManager.open("appconfig.json");
 int size = inputStream.available();
@@ -112,8 +114,11 @@ jsonObj = new JSONObject(jsonString);
 
 String merc = jsonObj.get("merchantKey").toString();
 String termi= jsonObj.get("terminalId").toString();
+*/
+        Intent intent = new Intent(context, NewActivity.class);
+        this.cordova.getActivity().startActivity(intent);
 
-callbackContext.success("RESULT is "+p2+" : "+termi);
+        callbackContext.success("RESULT is "+p2+" : ");
         
                     
                   

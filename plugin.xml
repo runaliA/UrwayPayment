@@ -17,10 +17,12 @@
                 <param name="android-package" value="cordova.plugin.payment.PaymentUrway" />
             </feature>
         </config-file>
+        
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/PaymentUrway.java" target-dir="src/cordova/plugin/payment/PaymentUrway" />
-                <config-file parent="/*" target="src/assets/www/assets/appconfig.json"></config-file>
-          
+        <config-file parent="/*" target="src/assets/www/assets/appconfig.json"></config-file>
+        <source-file src="src/android/NewActivity.java" target-dir="src/cordova/plugin/payment" />
+        <source-file src="src/android/activity_new.xml" target-dir="res/layout"/>
     </platform>
 
 </plugin>
