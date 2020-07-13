@@ -46,7 +46,7 @@ public class PaymentUrway extends CordovaPlugin {
             {
                     String p2=args.getJSONObject(0).getString("param2");
 
-
+                    
                     callbackContext.success("RESULT is "+p2);
         }
             catch(Exception ex)
