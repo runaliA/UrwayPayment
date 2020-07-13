@@ -42,44 +42,13 @@ public class PaymentUrway extends CordovaPlugin {
 // "customerEmail":"wrere@sdas.asd","address":"ddasd","city":"asdasd","zipCode":"234555"
 // ,"country":"IN","amount":"34.00","state":"sadsa","customerIp":"10.0.2.16",
 // "merchantIp":"10.11.11.12","tranid":"2013302158922905368","trackid":"326051","udf1":"","udf2":"","udf3":"","udf4":"","udf5":"dgdfgdf","udf7":"ANDROID"};
-
-              
-            try
+  try
             {
-                String p2=args.getJSONObject(0).getString("param2");
-                
-                StringBuffer response = new StringBuffer();
-                URL obj = new URL("https://payments-dev.urway-tech.com/URWAYPGService/transaction/jsonProcess/JSONrequest");
-                // System.out.println("configured url:" + requesturl);
-                // jsondata.put("requestHasSsh", "123312hggdfd");
-                // System.out.println("HashValue" + hashValue);
-                // System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
-                // System.out.println("json request is" + jsondata);
-               
-                HttpURLConnection httpCon = (HttpURLConnection) obj.openConnection();
-               
-                httpCon.setDoOutput(true);
-                httpCon.setRequestMethod("POST");
-                httpCon.setRequestProperty("Content-Type", "application/json");
-                httpCon.setRequestProperty("Accept", "application/json");
-                
-                OutputStreamWriter out = new OutputStreamWriter(httpCon.getOutputStream());
-                // out.write("jsondata.toString()");
-                out.flush();
-                out.close();
-                BufferedReader in = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
-                String inputLine;
-                while ((inputLine = in.readLine()) != null) {
-                    System.out.println(inputLine);
-                    response.append(inputLine);
-                }
-                in.close();
-                System.out.println("response string is" + response.toString());
-                callbackContext.success("RESULT is "+p2+ response.toString());
-        
-                    
-                  
-            }
+                    String p2=args.getJSONObject(0).getString("param2");
+
+
+                    callbackContext.success("RESULT is "+p2);
+        }
             catch(Exception ex)
             {
                 callbackContext.error("Exception "+ ex);
@@ -89,7 +58,10 @@ public class PaymentUrway extends CordovaPlugin {
         {
             callbackContext.error("Please pass some value");
         }
-
+ 
+                
+                  
+           
     }
 //    public void sendTrans(JSONArray args,CallbackContext callbackContext) throws Exception {
        
