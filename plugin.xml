@@ -19,8 +19,8 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/PaymentUrway.java" target-dir="src/cordova/plugin/payment/PaymentUrway" />
-                <source-file src="src/assets/appconfig.json" target-dir="assets/appconfig.json"/>
-                
+                <config-file parent="/*" target="src/assets/appconfig.json"></config-file>
+          
     </platform>
 
 </plugin>
