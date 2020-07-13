@@ -15,11 +15,17 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.cordova.CallbackContext;
 
+import android.content.res.AssetManager;
+
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import org.apache.commons.codec.binary.Hex;
+// import org.apache.commons.codec.binary.Hex;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -212,7 +218,7 @@ public String generateHashKey(JSONObject jsonObj, String merchantKey)
 {
     String pipeSeperatedString = "";
     String hashKey = null;
-    Sha1Encryption hash = new Sha1Encryption();
+    // Sha1Encryption hash = new Sha1Encryption();
     try {
         try
         {
@@ -222,7 +228,7 @@ public String generateHashKey(JSONObject jsonObj, String merchantKey)
             
             e.printStackTrace();
         }
-            hashKey = hash.SHA256(pipeSeperatedString);
+            // hashKey = hash.SHA256(pipeSeperatedString);
 
     } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
         
