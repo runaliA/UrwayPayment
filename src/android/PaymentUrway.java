@@ -54,9 +54,9 @@ public class PaymentUrway extends CordovaPlugin {
             try
             {
                 String p2=args.getJSONObject(0).getString("param2");
-                JSONObject jsondata = new JSONObject();
-                jsondata=createJson(args);
-               String hashValue = generateHashKey(jsondata, "146c0c30025cadba9fbdf9e909b49eac1b631b4afeb56485f93d8f271a832e3a");
+            //     JSONObject jsondata = new JSONObject();
+            //     jsondata=createJson(args);
+            //    String hashValue = generateHashKey(jsondata, "146c0c30025cadba9fbdf9e909b49eac1b631b4afeb56485f93d8f271a832e3a");
 
                
 
@@ -64,7 +64,7 @@ public class PaymentUrway extends CordovaPlugin {
                 StringBuffer response = new StringBuffer();
                 URL obj = new URL("https://payments-dev.urway-tech.com/URWAYPGService/transaction/jsonProcess/JSONrequest");
                 // System.out.println("configured url:" + requesturl);
-                jsondata.put("requestHash", hashValue);
+                // jsondata.put("requestHash", hashValue);
                 // System.out.println("HashValue" + hashValue);
                 // System.out.println("JSON REQ HASHVAL" + jsondata.getString("requestHash"));
                 // System.out.println("json request is" + jsondata);
